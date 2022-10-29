@@ -21,99 +21,99 @@ jobs:
         env:
           CI: true
 
-      - name: /links get lambda deploy zip
-        uses: postman-open-technologies/links@main
+      - name: /organizations get lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-g.zip links/get/index.js node_modules
-      - name: link get lambda deploy
+            args: zip -qq -r m-s-organizations-g.zip organizations/get/index.js node_modules
+      - name: organization get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-g
-            zip_file: m-s-links-g.zip
-      - name: /links post lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-g
+            zip_file: m-s-organizations-g.zip
+      - name: /organizations post lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-po.zip links/post/index.js node_modules
-      - name: link get lambda deploy
+            args: zip -qq -r m-s-organizations-po.zip organizations/post/index.js node_modules
+      - name: organization get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-po
-            zip_file: m-s-links-po.zip
-      - name: /links/{link_id} get lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-po
+            zip_file: m-s-organizations-po.zip
+      - name: /organizations/{organization_id} get lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-link-g.zip links/link_id/get/index.js node_modules
-      - name: link get lambda deploy
+            args: zip -qq -r m-s-organizations-organization-g.zip organizations/organization_id/get/index.js node_modules
+      - name: organization get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-link-g
-            zip_file: m-s-links-link-g.zip
-      - name: /links/{link_id} put lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-organization-g
+            zip_file: m-s-organizations-organization-g.zip
+      - name: /organizations/{organization_id} put lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-link-pu.zip links/link_id/put/index.js node_modules
-      - name: link get lambda deploy
+            args: zip -qq -r m-s-organizations-organization-pu.zip organizations/organization_id/put/index.js node_modules
+      - name: organization get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-link-pu
-            zip_file: m-s-links-link-pu.zip
-      - name: /links/{link_id} delete lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-organization-pu
+            zip_file: m-s-organizations-organization-pu.zip
+      - name: /organizations/{organization_id} delete lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-link-d.zip links/link_id/delete/index.js node_modules
-      - name: link get lambda deploy
+            args: zip -qq -r m-s-organizations-organization-d.zip organizations/organization_id/delete/index.js node_modules
+      - name: organization get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-link-d
-            zip_file: m-s-links-link-d.zip          
-      - name: /links/{link_id}/tags get lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-organization-d
+            zip_file: m-s-organizations-organization-d.zip          
+      - name: /organizations/{organization_id}/tags get lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-link-tags-g.zip links/link_id/tags/get/index.js node_modules
-      - name: links get lambda deploy
+            args: zip -qq -r m-s-organizations-organization-tags-g.zip organizations/organization_id/tags/get/index.js node_modules
+      - name: organizations get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-link-tags-g
-            zip_file: m-s-links-link-tags-g.zip
-      - name: /links/{link_id}/tags post lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-organization-tags-g
+            zip_file: m-s-organizations-organization-tags-g.zip
+      - name: /organizations/{organization_id}/tags post lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-link-tags-po.zip links/link_id/tags/post/index.js node_modules
-      - name: links get lambda deploy
+            args: zip -qq -r m-s-organizations-organization-tags-po.zip organizations/organization_id/tags/post/index.js node_modules
+      - name: organizations get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-link-tags-po
-            zip_file: m-s-links-link-tags-po.zip
-      - name: /links/{link_id}/tags/{tag_id} delete lambda deploy zip
-        uses: postman-open-technologies/links@main
+            function_name: m-s-organizations-organization-tags-po
+            zip_file: m-s-organizations-organization-tags-po.zip
+      - name: /organizations/{organization_id}/tags/{tag_id} delete lambda deploy zip
+        uses: postman-open-technologies/organizations@main
         with:
-            args: zip -qq -r m-s-links-link-tags-tag-d.zip links/link_id/tags/tag_id/delete/index.js node_modules
-      - name: links get lambda deploy
+            args: zip -qq -r m-s-organizations-organization-tags-tag-d.zip organizations/organization_id/tags/tag_id/delete/index.js node_modules
+      - name: organizations get lambda deploy
         uses: appleboy/lambda-action@master
         with:
             aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
             aws_region: us-west-1
-            function_name: m-s-links-link-tags-tag-d
-            zip_file: m-s-links-link-tags-tag-d.zip            
+            function_name: m-s-organizations-organization-tags-tag-d
+            zip_file: m-s-organizations-organization-tags-tag-d.zip            
