@@ -117,3 +117,39 @@ jobs:
             aws_region: us-west-1
             function_name: m-s-organizations-organization-tags-tag-d
             zip_file: m-s-organizations-organization-tags-tag-d.zip            
+      - name: /organizations/{organization_id}/elements get lambda deploy zip
+        uses: postman-open-technologies/organizations@main
+        with:
+            args: zip -qq -r m-s-organizations-organization-elements-g.zip organizations/organization_id/elements/get/index.js node_modules
+      - name: organizations get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+            aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_region: us-west-1
+            function_name: m-s-organizations-organization-elements-g
+            zip_file: m-s-organizations-organization-elements-g.zip
+      - name: /organizations/{organization_id}/elements post lambda deploy zip
+        uses: postman-open-technologies/organizations@main
+        with:
+            args: zip -qq -r m-s-organizations-organization-elements-po.zip organizations/organization_id/elements/post/index.js node_modules
+      - name: organizations get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+            aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_region: us-west-1
+            function_name: m-s-organizations-organization-elements-po
+            zip_file: m-s-organizations-organization-elements-po.zip
+      - name: /organizations/{organization_id}/elements/{element_id} delete lambda deploy zip
+        uses: postman-open-technologies/organizations@main
+        with:
+            args: zip -qq -r m-s-organizations-organization-elements-element-d.zip organizations/organization_id/elements/element_id/delete/index.js node_modules
+      - name: organizations get lambda deploy
+        uses: appleboy/lambda-action@master
+        with:
+            aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws_region: us-west-1
+            function_name: m-s-organizations-organization-elements-element-d
+            zip_file: m-s-organizations-organization-elements-element-d.zip              
